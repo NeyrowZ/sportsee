@@ -1,9 +1,10 @@
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import { useAuth } from '../../context/AuthContext';
+import styles from './Dashboard.module.css'
 
 export default function Dashboard() {
-    const { user, logout } = useAuth();
+    const { user } = useAuth();
     return (
         <>
             <Header />
@@ -16,7 +17,6 @@ export default function Dashboard() {
                     <ul>
                         <li>Durée totale parcourue {user.statistics.totalDistance}km</li>
                     </ul>
-                    <button onClick={logout}>Logout</button>
                 </div>
             </main>
             <Footer />

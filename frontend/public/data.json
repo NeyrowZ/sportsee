@@ -1,5 +1,5 @@
 {
-    "id": "user001",
+    "id": "032aa942-2ab0-44af-a7a3-c045526155fc",
     "userInfos": {
         "firstName": "John",
         "lastName": "Doe",
@@ -10,8 +10,6 @@
         "weight": 85,
         "createdAt": "2026-01-01"
     },
-    "username": "dev",
-    "password": "dev",
     "runningData": [
         {
             "date": "2029-11-30",
