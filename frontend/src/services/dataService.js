@@ -73,7 +73,7 @@ const dataService = {
             const user = await response.json();
             const filteredSessions = user.runningData.filter((session) => {
                 const sessionDate = new Date(session.date);
-                return sessionDate >= new Date(startWeek) && sessionDate <= new Date(endWeek) && sessionDate <= new Date();
+                return sessionDate >= new Date(startWeek) && sessionDate <= new Date(endWeek);
             });
             return filteredSessions.sort((a, b) => new Date(a.date) - new Date(b.date));
         } else {

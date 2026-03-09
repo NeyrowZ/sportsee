@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
 import Logo from '../../components/Logo/Logo';
 import styles from './Login.module.css';
 
@@ -22,7 +22,7 @@ export default function Login() {
 
     return (
         <div className={styles.wrapper}>
-            <main>
+            <div className={styles.container}>
                 <Logo />
                 <form onSubmit={handleSubmit}>
                     <h1>Transformez<br/>vos stats en résultats</h1>
@@ -50,11 +50,11 @@ export default function Login() {
                         </div>
                     </div>
                     <button type="submit">Se connecter</button>
-                    <a href="#">Mot de passe oublié ?</a>
+                    <Link to="/">Mot de passe oublié ?</Link>
                 </form>
-            </main>
+            </div>
             <div className={styles.background}>
-                <img src="images/background.jpg" />
+                <img src="images/background.jpg" alt="Background"/>
                 <p>Analysez vos performances en un clin d’œil,<br/>suivez vos progrès et atteignez vos objectifs.</p>
             </div>
         </div>
