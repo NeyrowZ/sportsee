@@ -49,6 +49,7 @@ const dataService = {
                     'lastName': user.userInfos.lastName,
                     'createdAt': user.userInfos.createdAt,
                     'age': user.userInfos.age,
+                    'gender': user.userInfos.gender,
                     'height': user.userInfos.height,
                     'weight': user.userInfos.weight,
                     'profilePicture': user.userInfos.profilePicture

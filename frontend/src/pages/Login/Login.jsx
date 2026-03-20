@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import Logo from '../../components/Logo/Logo';
 import styles from './Login.module.css';
 
-export default function Login() {
+export default function LoginPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const { login } = useAuth();
@@ -25,9 +25,9 @@ export default function Login() {
             <div className={styles.container}>
                 <Logo />
                 <form onSubmit={handleSubmit}>
-                    <h1>Transformez<br/>vos stats en résultats</h1>
+                    <h3>Transformez<br/>vos stats en résultats</h3>
                     <div className={styles.fields}>
-                        <h2>Se connecter</h2>
+                        <h4>Se connecter</h4>
                         <div className={styles.field}>
                             <label htmlFor="username">Nom d'utilisateur</label>
                             <input

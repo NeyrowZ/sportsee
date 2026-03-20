@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom'
 import { useAuth } from './context/AuthContext';
-import Login from './pages/Login/Login';
-import Dashboard from './pages/Dashboard/Dashboard';
-import Profile from './pages/Profile/Profile';
+import LoginPage from './pages/Login/Login';
+import DashboardPage from './pages/Dashboard/Dashboard';
+import ProfilePage from './pages/Profile/Profile';
 import './global.css';
 
 const ProtectedRoute = ({ condition, redirect }) => {
@@ -17,11 +17,11 @@ export default function App() {
         <BrowserRouter>
             <Routes>
                 <Route element={<ProtectedRoute condition={user != null} redirect="/dashboard" />}>
-                    <Route path="/" element={<Login />} />
+                    <Route path="/" element={<LoginPage />} />
                 </Route>
                 <Route element={<ProtectedRoute condition={user == null} redirect="/" />}>
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/dashboard" element={<DashboardPage />} />
+                    <Route path="/profile" element={<ProfilePage />} />
                 </Route>
             </Routes>
         </BrowserRouter>
