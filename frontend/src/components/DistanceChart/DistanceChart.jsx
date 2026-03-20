@@ -73,14 +73,10 @@ export default function DistanceChart() {
                             activityDate.setHours(12, 0, 0, 0);
                             return activityDate >= weekStart && activityDate <= weekEnd;
                         });
-
+                        
                         const totalDistance = weekActivities.reduce((sum, activity) => {
                             return sum + (activity.distance || 0);
                         }, 0);
-
-                        const formatLabel = (date) => {
-                            return `${date.getDate().toString().padStart(2, '0')} ${date.toLocaleDateString('fr', { month: 'short' }).replace('.', '')}`;
-                        };
 
                         weekly.push({
                             week: `S${i + 1}`,

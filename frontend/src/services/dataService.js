@@ -3,6 +3,14 @@ const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api
 
 const getToken = () => localStorage.getItem('token');
 
+function getNbDaysOff(runningData, createdAt) {
+    const now = new Date();
+    const nbTotalDays = Math.round((now - new Date(createdAt)) / (1000 * 60 * 60 * 24));
+    const pastSessions = runningData.filter((session) => new Date(session.date) <= now);
+    const nbDaysSessions = new Set(pastSessions.map((session) => session.date)).size;
+    return nbTotalDays - nbDaysSessions;
+}
+
 const dataService = {
     setAuthToken(token) {
         if (token) {
@@ -43,21 +51,15 @@ const dataService = {
         );
         if (USE_MOCK) {
             const user = await response.json();
+            const runningData = user.runningData.filter((session) => new Date(session.date) <= new Date());
             return {
-                'profile': {
-                    'firstName': user.userInfos.firstName,
-                    'lastName': user.userInfos.lastName,
-                    'createdAt': user.userInfos.createdAt,
-                    'age': user.userInfos.age,
-                    'gender': user.userInfos.gender,
-                    'height': user.userInfos.height,
-                    'weight': user.userInfos.weight,
-                    'profilePicture': user.userInfos.profilePicture
-                },
-                'statistics': {
-                    'totalDistance': user.runningData.reduce((sum, session) => sum + session.distance, 0).toFixed(1),
-                    'totalSessions': user.runningData.length,
-                    'totalDuration': user.runningData.reduce((sum, session) => sum + session.duration, 0)
+                profile: user.userInfos,
+                statistics: {
+                    totalDistance: runningData.reduce((sum, session) => sum + session.distance, 0).toFixed(1),
+                    totalSessions: runningData.length,
+                    totalDuration: runningData.reduce((sum, session) => sum + session.duration, 0),
+                    totalBurntCalories: runningData.reduce((sum, session) => sum + session.caloriesBurned, 0),
+                    totalDaysOff: getNbDaysOff(runningData, user.userInfos.createdAt)
                 }
             };
         } else {

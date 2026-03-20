@@ -6,9 +6,10 @@
             "lastName": "Martin",
             "age": 32,
             "gender": "female",
-            "profilePicture": "http://localhost:8000/images/sophie.jpg",
             "height": 165,
             "weight": 60,
+            "weeklyGoal": 2,
+            "profilePicture": "http://localhost:8000/images/sophie.jpg",
             "createdAt": "2025-01-01"
         },
         "username": "sophiemartin",
@@ -3846,7 +3847,6 @@
     },
     {
         "id": "user789",
-        "goal": 3,
         "userInfos": {
             "firstName": "Emma",
             "lastName": "Leroy",
@@ -3854,6 +3854,7 @@
             "gender": "female",
             "height": 170,
             "weight": 62,
+            "weeklyGoal": 3,
             "profilePicture": "http://localhost:8000/images/emma.jpg",
             "createdAt": "2025-01-01"
         },
@@ -10544,11 +10545,11 @@
         "userInfos": {
             "firstName": "Marc",
             "lastName": "Dubois",
-            "goal": 2,
             "age": 45,
             "gender": "male",
             "height": 180,
             "weight": 85,
+            "weeklyGoal": 2,
             "profilePicture": "http://localhost:8000/images/marc.jpg",
             "createdAt": "2025-01-01"
         },

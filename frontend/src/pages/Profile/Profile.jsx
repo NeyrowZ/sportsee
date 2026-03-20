@@ -17,13 +17,13 @@ export default function ProfilePage() {
                     </div>
                     <div className={styles.informations}>
                         <div className={styles.title}>
-                            <h4>Votre profile</h4>
+                            <h4>Votre profil</h4>
                         </div>
                         <div className={styles.infos}>
                             <span>Âge : {user.profile.age}</span>
-                            <span>Genre : {user.profile.gender == 'male' ? 'Homme' : (user.profile.gender == 'female' ? 'Femme' : 'Unknown')}</span>
-                            <span>Taille : {user.profile.height}</span>
-                            <span>Poids : {user.profile.weight}</span>
+                            <span>Genre : {user.profile.gender === 'male' ? 'Homme' : (user.profile.gender === 'female' ? 'Femme' : 'Unknown')}</span>
+                            <span>Taille : {Math.floor(user.profile.height / 100)}m{(user.profile.height % 100).toString().padStart(2, '0')}</span>
+                            <span>Poids : {user.profile.weight}kg</span>
                         </div>
                     </div>
                 </section>
@@ -34,8 +34,10 @@ export default function ProfilePage() {
                     </div>
                     <div className={styles.stats}>
                         <ProfileStat desc="Durée totale courue" value={`${Math.floor(user.statistics.totalDuration / 60)}h`} unit={`${user.statistics.totalDuration % 60}min`} />
+                        <ProfileStat desc="Calories brûlées" value={user.statistics.totalBurntCalories} unit="cal" />
                         <ProfileStat desc="Distance totale parcourue" value={user.statistics.totalDistance} unit="km" />
-                        <ProfileStat desc="Nombre de sessions" value={user.statistics.totalSessions} unit="km" />
+                        <ProfileStat desc="Nombre de jours de repos" value={user.statistics.totalDaysOff} unit="jours" />
+                        <ProfileStat desc="Nombre de sessions" value={user.statistics.totalSessions} unit="sessions" />
                     </div>
                 </section>
             </main>

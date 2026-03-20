@@ -5,9 +5,10 @@
         "lastName": "Doe",
         "age": 20,
         "gender": "male",
-        "profilePicture": "images/avatar.png",
         "height": 182,
         "weight": 85,
+        "weeklyGoal": 4,
+        "profilePicture": "images/avatar.png",
         "createdAt": "2025-01-04"
     },
     "runningData": [
