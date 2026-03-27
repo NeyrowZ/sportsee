@@ -76,20 +76,30 @@
                 background: #fff;
                 border-radius: 10px;
 
-                .title {
+                .header {
                     display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    gap: .375rem;
-                    height: 50px;
+                    flex-direction: column;
 
-                    h3 {
-                        color: #0B23F4;
+                    .title {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: .375rem;
+                        height: 50px;
+
+                        h3 {
+                            color: #0B23F4;
+                        }
+
+                        span {
+                            color: #B6BDFC;
+                            font-weight: 500;
+                        }
                     }
-
+                    
                     span {
-                        color: #B6BDFC;
-                        font-weight: 500;
+                        font-size: .875rem;
+                        color: #707070;
                     }
                 }
             }

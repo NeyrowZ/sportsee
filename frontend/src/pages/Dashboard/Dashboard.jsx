@@ -85,9 +85,12 @@ export default function DashboardPage() {
                     </div>
                     <div className={styles.container}>
                         <div className={styles.weeklyGoal}>
-                            <div className={styles.title}>
-                                <h3>x{weeklyStats.totalSessions}</h3>
-                                <span>sur objectif de {user.profile.weeklyGoal}</span>
+                            <div className={styles.header}>
+                                <div className={styles.title}>
+                                    <h3>x{weeklyStats.totalSessions}</h3>
+                                    <span>sur objectif de {user.profile.weeklyGoal}</span>
+                                </div>
+                                <span>Courses hebdomadaire réalisées</span>
                             </div>
                             <PieChart
                                 style={{ width: '100%', aspectRatio: 2 / 1 }}>
