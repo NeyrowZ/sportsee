@@ -2,8 +2,8 @@ import { useAuth } from '../../context/AuthContext';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Profile from '../../components/Profile/Profile';
-import styles from './Profile.module.css';
 import ProfileStat from '../../components/ProfileStat/ProfileStat';
+import styles from './Profile.module.css';
 
 export default function ProfilePage() {
     const { user } = useAuth();

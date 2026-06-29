@@ -1,4 +1,5 @@
 import { useAuth } from '../../context/AuthContext';
+import dataService from '../../services/dataService';
 import timeService from '../../services/timeService';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -8,7 +9,6 @@ import WeekStat from '../../components/WeekStat/WeekStat';
 import DistanceChart from '../../components/charts/DistanceChart/DistanceChart';
 import HeartRateChart from '../../components/charts/HeartRateChart/HeartRateChart';
 import { useEffect, useState } from 'react';
-import dataService from '../../services/dataService';
 import { Cell, Legend, Pie, PieChart } from 'recharts';
 
 export default function DashboardPage() {
@@ -48,7 +48,7 @@ export default function DashboardPage() {
                 setWeeklyStats({
                     totalSessions,
                     totalDuration,
-                    totalDistance
+                    totalDistance: totalDistance.toFixed(1)
                 });
             }
         };
@@ -97,7 +97,7 @@ export default function DashboardPage() {
                                 <Pie
                                     data={[
                                         { name: `${weeklyStats.totalSessions} Réalisées`, value: weeklyStats.totalSessions },
-                                        { name: `${user.profile.weeklyGoal - weeklyStats.totalSessions} Restantes`, value: user.profile.weeklyGoal - weeklyStats.totalSessions }
+                                        { name: `${Math.max(0, user.profile.weeklyGoal - weeklyStats.totalSessions)} Restantes`, value: Math.max(0, user.profile.weeklyGoal - weeklyStats.totalSessions) }
                                     ].filter(item => item.value > 0)}
                                     innerRadius={40}
                                     outerRadius={80}
